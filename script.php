@@ -8,7 +8,7 @@ error_reporting(0);
 $user = ""; //username instagram
 $pass = ""; //password instagram
  
-$schlampen = []; // <- which bitches do u wanna stalk? example: ["bitch1", "bitch2", "bitch3"]
+$girls = []; // <- which girl do u wanna stalk? example: ["girl1", "girl2", "girl3"]
  
 // http://www.hashbangcode.com/blog/netscape-http-cooke-file-parser-php
 function extractCookies($string) {
@@ -153,12 +153,12 @@ function login($user, $pass) {
     return false;
 }
  
-function startScrapping($schlampen, $cookies) {
-    foreach($schlampen as $schlampe) {
-        echo date("Y-m-d H:i:s")." [$schlampe] Fetching all images...\r\n";
-        fetchJson($schlampe, $cookies);
+function startScrapping($girls, $cookies) {
+    foreach($girls as $girl) {
+        echo date("Y-m-d H:i:s")." [$girl] Fetching all images...\r\n";
+        fetchJson($girl, $cookies);
     }
-    startScrapping($schlampen, $cookies);
+    startScrapping($girls, $cookies);
 }
  
 if(login($user, $pass)) {
@@ -170,5 +170,5 @@ if(login($user, $pass)) {
         }
     }
     $cookies = substr($cookies, 0, -2);
-    startScrapping($schlampen, $cookies);
+    startScrapping($girls, $cookies);
 }
